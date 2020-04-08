@@ -118,7 +118,7 @@ class Dashboard extends Component {
                 onChange={this.updateSearchText}
                 onKeyPress={this.handleSearchRequestEnterKeyPressed}
                 class="form-control"
-                placeholder="e.g. Test19, 516515" />
+                placeholder="e.g. Alderaan, 516515" />
               <div class="input-group-append">
                 <button class="btn btn-outline-info"
                   onClick={this.handleSearchRequest}
