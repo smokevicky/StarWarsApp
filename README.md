@@ -1,32 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+StarWarsApp was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Table of Contents
 
-- [Updating to New Releases](#updating-to-new-releases)
+- [Setting up on local](#updating-to-new-releases)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
+- [User journey](#user-journey)
+- [Known Bugs](#known-bugs)
 
-## Updating to New Releases
+## Setting up on local
 
-Create React App is divided into two packages:
+Checkout the code onto a local folder
 
-* `create-react-app` is a global command-line utility that you use to create new projects.
-* `react-scripts` is a development dependency in the generated projects (including this one).
-
-You almost never need to update `create-react-app` itself: it delegates all the setup to `react-scripts`.
-
-When you run `create-react-app`, it always creates the project with the latest version of `react-scripts` so you’ll get all the new features and improvements in newly created apps automatically.
-
-To update an existing project to a new version of `react-scripts`, [open the changelog](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md), find the version you’re currently on (check `package.json` in this folder if you’re not sure), and apply the migration instructions for the newer versions.
-
-In most cases bumping the `react-scripts` version in `package.json` and running `npm install` in this folder should be enough, but it’s good to consult the [changelog](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md) for potential breaking changes.
-
-We commit to keeping the breaking changes minimal so you can upgrade `react-scripts` painlessly.
+* Open Command Prompt or Powershell by `shift + right click`.
+* Run `npm install` so that all necessary packages are installed.
 
 ## Folder Structure
 
@@ -81,17 +73,6 @@ For the project to build, **these files must exist with exact filenames**:
 * `public/index.html` is the page template;
 * `src/index.js` is the JavaScript entry point.
 
-You can delete or rename the other files.
-
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-You need to **put any JS and CSS files inside `src`**, or Webpack won’t see them.
-
-Only files inside `public` can be used from `public/index.html`.<br>
-Read instructions below for using assets from JavaScript and HTML.
-
-You can, however, create more top-level directories.<br>
-They will not be included in the production build so you can use them for things like documentation.
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -114,4 +95,35 @@ Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
 
-If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+## User journey
+
+* Screen 1: Login
+
+  In the username text field, users can enter their usernames in lowercase or partially. The code will search for their details in the api and fetch it. Users can either press enter or click on the signin button next to the input control after entering their details. Signin button will stay disabled untill user enters an user name.
+
+  After a successful login, user will be redirected to dashboard page.
+
+  In case the user name is not found on the server, user will see an error message on the screen i.e. `"Name not found !"`. In case any other unexpected http errors, user will see `"Unexpected error occured"`
+  
+  Untill an user is signed in successfully, he won't see his `username` with a `Logout` button, on top-right navbar.
+
+  Successful signin information is stored in browser's `localstorage` and users can return back to their session even after closing - reopening their tabs.
+
+* Screen 2: Dashboard
+
+  Dashboard screen has a manually implemented table iterated on list of available `Planets` along with their details. The table has pagination button as well as code, in place.
+
+  A `Search textbox` is available on top-right along with a search button. Users can either click on the button or press enter to trigger a search. Since pagination is not working, the search functionality will search within a single page on a locally saved list of planet details and will re-populate the table.
+
+  To be able to see all records again, clear the search-box and press enter again.
+
+  Users can logout by clicking on their `username` on top-right navbar dropdown -> `Logout`. Localstorage will get cleared once user logs out. User will get redirected to `Screen 1` after a successful logout.
+
+## Known Bugs
+
+* Users may not get redirected to login screen after a successful logout.
+* Users may not see their user on top-right navbar after a successful login. Please refresh the page once to be able to see the details.
+* Pagination doesn't work since swapi doesn't work anymore. Server side pagination was working when code was intact.
+* Once the swapi gets back up, we can uncomment related code in `peopleapi-helper.js` and `planetapi-helper.js` so that the code integrates to apis again!
+
+Thank You :)
