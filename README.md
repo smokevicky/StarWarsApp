@@ -121,8 +121,7 @@ See the section about [deployment](#deployment) for more information.
 
 ## Known Bugs
 
-* Users may not get redirected to login screen after a successful logout.
-* Users may not see their user on top-right navbar after a successful login. Please refresh the page once to be able to see the details.
+* Users may not see their user on top-right navbar after a successful login. Please refresh the page once to be able to see the details. Same applies to log out.
 * Pagination doesn't work since swapi doesn't work anymore. Server side pagination was working when code was intact.
 * Once the swapi gets back up, we can uncomment related code in `peopleapi-helper.js` and `planetapi-helper.js` so that the code integrates to apis again!
 
