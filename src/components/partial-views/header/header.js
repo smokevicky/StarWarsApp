@@ -1,7 +1,11 @@
+// reactive imports
 import React, { Component } from 'react';
-import logo from '../../../logo.svg';
+import {Link} from "react-router-dom";
+
+// internal imports
 import LocalStorageHelper from '../../../helpers/localstorage-helper';
 import RedirectHelper from '../../../helpers/redirect-helper';
+import logo from '../../../logo.svg';
 
 class Header extends Component {
   constructor(){
@@ -35,7 +39,6 @@ class Header extends Component {
     this.setState({
       redirectHtml: new RedirectHelper().redirectToLogin()
     });
-    window.location.reload();
   }
 
   render() {
@@ -57,10 +60,10 @@ class Header extends Component {
 
     return (
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/login">
+        <Link class="navbar-brand" to="/">
           <img src={logo} className="App-logo" alt="logo" />
           Star Wars App
-        </a>
+        </Link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

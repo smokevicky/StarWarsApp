@@ -70,7 +70,7 @@ class Dashboard extends Component {
   }
 
   handleSearchRequest() {
-    let searchText = this.state.searchText;
+    let searchText = this.state.searchText.toLowerCase();
     let filteredListOfPlanets = this.state.listOfPlanets.filter((planet) => {
       return (
         planet.name.toLowerCase().includes(searchText) ||
